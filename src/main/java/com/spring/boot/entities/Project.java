@@ -1,5 +1,7 @@
 package com.spring.boot.entities;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +15,10 @@ public class Project {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
+	private Date sDate;
+	private Date eDate;
+	private String type;
+	private String manager;
 	private String abbreviation;
 
 	public Long getId() {
@@ -29,6 +35,38 @@ public class Project {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Date getsDate() {
+		return sDate;
+	}
+
+	public void setsDate(Date sDate) {
+		this.sDate = sDate;
+	}
+
+	public Date geteDate() {
+		return eDate;
+	}
+
+	public void seteDate(Date eDate) {
+		this.eDate = eDate;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getManager() {
+		return manager;
+	}
+
+	public void setManager(String manager) {
+		this.manager = manager;
 	}
 
 	public String getAbbreviation() {

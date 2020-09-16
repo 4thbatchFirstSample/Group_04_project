@@ -8,20 +8,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring.boot.converters.ProjectConverter;
-import com.spring.boot.dto.ProjectDto;
-import com.spring.boot.services.ProjectService;
+import com.spring.boot.converters.UserConverter;
+import com.spring.boot.dto.UserDto;
+import com.spring.boot.services.UserService;
 
 @RestController
 @RequestMapping(value ="api/v1")
-public class ProjectController {
+public class UserController {
 
 	@Autowired
-	private ProjectService projectService;
+	private UserService userService;
 	
-	@PostMapping(value = "/project")
-	public ResponseEntity<Object> addProject(@RequestBody ProjectDto projectDto) {
-		projectService.addProject(ProjectConverter.projectDtoToProject(projectDto));
+	@PostMapping(value = "/user")
+	public ResponseEntity<Object> addUser(@RequestBody UserDto userDto) {
+		userService.addUser(UserConverter.userDtoToUser(userDto));
 		return new ResponseEntity<Object>("Added Successfully", HttpStatus.CREATED);
 	}
 }
