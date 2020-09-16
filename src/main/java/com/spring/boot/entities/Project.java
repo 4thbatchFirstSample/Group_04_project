@@ -8,6 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
+
 public class Project {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
