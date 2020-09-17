@@ -13,12 +13,12 @@ import com.spring.boot.dto.UserDto;
 import com.spring.boot.services.UserService;
 
 @RestController
-@RequestMapping(value ="api/v1")
+@RequestMapping(value = "api/v1")
 public class UserController {
 
 	@Autowired
 	private UserService userService;
-	
+
 	@PostMapping(value = "/user")
 	public ResponseEntity<Object> addUser(@RequestBody UserDto userDto) {
 		userService.addUser(UserConverter.userDtoToUser(userDto));

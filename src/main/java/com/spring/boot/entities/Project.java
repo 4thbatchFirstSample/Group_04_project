@@ -15,8 +15,8 @@ public class Project {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
-	private Date sDate;
-	private Date eDate;
+	private Date startDate;
+	private Date endDate;
 	private String type;
 	private String manager;
 	private String abbreviation;
@@ -38,19 +38,19 @@ public class Project {
 	}
 
 	public Date getsDate() {
-		return sDate;
+		return startDate;
 	}
 
 	public void setsDate(Date sDate) {
-		this.sDate = sDate;
+		this.startDate = sDate;
 	}
 
 	public Date geteDate() {
-		return eDate;
+		return endDate;
 	}
 
 	public void seteDate(Date eDate) {
-		this.eDate = eDate;
+		this.endDate = eDate;
 	}
 
 	public String getType() {
