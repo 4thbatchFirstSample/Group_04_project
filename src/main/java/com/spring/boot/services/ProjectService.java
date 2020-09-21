@@ -8,12 +8,12 @@ public interface ProjectService {
 
 	public void addProject(Project project);
 
-	public Optional<Project> getProject(Long id);
+	public void updateProjectById(Project project);
+
+	public Optional<Project> getProjectid(Long id);
 
 	public void deleteById(Long id);
 
-	public void updateById(Long id);
+	public Optional<Project> getByIdProject(Long id);
 
-//	public void updateProject(Project project);
-//	public Optional<Project> getByIdProject(Long id);
 }

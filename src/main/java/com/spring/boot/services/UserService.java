@@ -10,8 +10,10 @@ public interface UserService {
 
 	public String deleteUser(User user);
 
-	public Optional<User> deleteUserById(Long id);
+	public void deleteUserById(Long id);
 
-	public Optional<User> updateUserById(Long id);
+	public void updateUserById(User user);
+
+	public Optional<User> getUserById(Long id);
 
 }

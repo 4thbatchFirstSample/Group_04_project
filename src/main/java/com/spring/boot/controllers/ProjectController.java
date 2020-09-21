@@ -27,37 +27,26 @@ public class ProjectController {
 	@Autowired
 	private ProjectService projectService;
 
-	@PostMapping(value = "/postproject") // Last path URL
+	@PostMapping(value = "/postproject") // Last path URL // Working Success!!!
 	public ResponseEntity<Object> addProject(@RequestBody ProjectDto projectDto) {
 		projectService.addProject(ProjectConverter.projectDtoToProject(projectDto));
 		return new ResponseEntity<Object>("Added Successfully", HttpStatus.CREATED);
 	}
 
-	@GetMapping(value = "/getproject/{id}")
-	public Optional<Project> getProject(@RequestBody ProjectDto projectDto, @PathVariable Long id) {
-		return projectService.getProject(id);
+	@PutMapping(value = "/updateproject/{id}") // Working Success!!!
+	public ResponseEntity<Object> updateProject(@RequestBody ProjectDto projectDto) {
+		projectService.updateProjectById(ProjectConverter.projectDtoToProject(projectDto));
+		return new ResponseEntity<Object>("Updated Successfully", HttpStatus.CREATED);
 	}
 
-//	@DeleteMapping(value = "/deleteproject/{id}")
-//	public ResponseEntity<Project> deleteProject(@RequestBody ProjectDto projectDto, @PathVariable Long id){
-//		projectService.deleteProject(ProjectConverter.projectDtoToProject(projectDto));
-//		return null;
-//	}
+	@GetMapping(value = "/getprojectid/{id}") // Working Success!!!
+	public Optional<Project> getProject(@RequestBody ProjectDto projectDto, @PathVariable Long id) {
+		return projectService.getProjectid(id);
+	}
 
-//	@DeleteMapping(value = "/deleteproject/{id}")
-//	public ResponseEntity<Project> deleteProject(@PathVariable Long id) {
-//	      projectService.deleteProject(null);
-//	      return null;		
-//	}
-
-	@DeleteMapping(value = "deleteproject/{id}")
+	@DeleteMapping(value = "deleteprojectid/{id}") // Working Success!!!
 	public void deleteProject(@PathVariable Long id) {
 		projectService.deleteById(id);
-	}
-
-	@PutMapping(value = "putproject/{id}")
-	public void updateById(@PathVariable Long id) {
-		projectService.updateById(id);
 	}
 
 }

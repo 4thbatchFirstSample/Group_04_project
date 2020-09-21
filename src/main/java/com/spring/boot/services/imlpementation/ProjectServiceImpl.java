@@ -20,29 +20,23 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
-	public Optional<Project> getProject(Long id) {
+	public void updateProjectById(Project project) {
+		projectRepository.save(project);
+	}
+
+	@Override
+	public Optional<Project> getProjectid(Long id) {
 		return projectRepository.findById(id);
 	}
 
 	@Override
 	public void deleteById(Long id) {
 		projectRepository.deleteById(id);
-		return;
 	}
 
 	@Override
-	public void updateById(Long id) {
-	//	projectRepository.
+	public Optional<Project> getByIdProject(Long id) {
+		return projectRepository.findById(id);
 	}
-	
-	/*
-	 * @Override public void updateProject(Project project) { // TODO Auto-generated
-	 * method stub
-	 * 
-	 * }
-	 * 
-	 * @Override public Optional<Project> getByIdProject(Long id) { return
-	 * projectRepository.findById(id); }
-	 */
 
 }
