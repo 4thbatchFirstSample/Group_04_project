@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Defect {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long defectId;
 	private String smId;
 	private String stasus;
 	private String name;
@@ -21,10 +21,10 @@ public class Defect {
 	private String severity;
 	private String asignto;
 	public Long getId() {
-		return id;
+		return defectId;
 	}
 	public void setId(Long id) {
-		this.id = id;
+		this.defectId = id;
 	}
 	public String getSmId() {
 		return smId;

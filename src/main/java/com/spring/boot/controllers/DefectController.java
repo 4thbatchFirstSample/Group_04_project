@@ -28,7 +28,7 @@ public class DefectController {
 		return "Successfully added";
     }
     
-    @PutMapping(value = "/postDefect/id")
+    @PutMapping(value = "/postDefect/{id}")
     public String putDefect(@RequestBody Defect id) {
     	 defectServices.updateDefect(id);
 		return "Successfully added";
@@ -40,9 +40,9 @@ public class DefectController {
 		return defectServices.getDefects();
 		
     }
-   
-    @GetMapping(value = "/getDefect"+"/"+"id")
-    public Optional<Defect> getD(@RequestBody Defect defect,@PathVariable Long id) {
+   // get by id
+    @GetMapping(value = "/getDefect"+"/"+"{id}")
+    public Optional<Defect> getDefectById(@RequestBody Defect defect,@PathVariable Long id) {
 		return defectServices.getDefect(id);
 		
     }

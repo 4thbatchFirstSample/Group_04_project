@@ -12,7 +12,7 @@ import com.spring.boot.repositories.DefectRepository;
 import com.spring.boot.services.DefectServices;
 
 
-@Service
+@ Service
 public class DefectServicesImpl implements DefectServices{
 	
 	@Autowired

@@ -1,7 +1,7 @@
 package com.spring.boot.dto;
 
 public class DefectDto {
-	private Long id;
+	private Long defectId;
 	private String smId;
 	private String stasus;
 	private String name;
@@ -10,10 +10,10 @@ public class DefectDto {
 	private String severity;
 	private String asignto;
 	public Long getId() {
-		return id;
+		return defectId;
 	}
 	public void setId(Long id) {
-		this.id = id;
+		this.defectId = id;
 	}
 	public String getSmId() {
 		return smId;
