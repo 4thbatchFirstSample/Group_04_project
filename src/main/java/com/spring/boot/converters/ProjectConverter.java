@@ -25,7 +25,7 @@ public class ProjectConverter {
 	// Project to ProjectDto list converter
 
 	public static List<ProjectDto> projectToProjectDto(List<Project> projectList) {
-		List<ProjectDto> listProjectDto = new ArrayList<>();
+		List<ProjectDto> listProjectDto = new ArrayList<>(); 
 		if (projectList != null) {
 			for (Project project : projectList) {
 				ProjectDto projectDto = new ProjectDto();

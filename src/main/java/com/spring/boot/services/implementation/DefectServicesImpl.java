@@ -3,6 +3,7 @@
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,19 +23,42 @@ public class DefectServicesImpl implements DefectServices{
 		// TODO Auto-generated method stub
 		defectRepository.save(defect);
 	}
-
-	@Override
-	public List<Defect> getDefect() {
+	public Defect updateDefect(Defect id) {
 		// TODO Auto-generated method stub
-		return defectRepository.findAll();
-		
+		return defectRepository.save(id);
 	}
-
+	
+	
 	@Override
 	public void deleteDefect(Long id) {
 		// TODO Auto-generated method stub
 		defectRepository.deleteById(id);
 	}
+
+	
+
+
+@Override
+	public List<Defect> getDefects() {
+		// TODO Auto-generated method stub
+		return defectRepository.findAll();
+	}
+
+
+
+@Override
+public Optional<Defect> getDefect(Long id) {
+	// TODO Auto-generated method stub
+	return defectRepository.findById(id);
+}
+
+
+
+@Override
+public void deleteDefects() {
+	// TODO Auto-generated method stub
+	defectRepository.deleteAll();
+}
 
 	
 

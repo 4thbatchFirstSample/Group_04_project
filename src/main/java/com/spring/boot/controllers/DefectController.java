@@ -1,6 +1,7 @@
 package com.spring.boot.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,24 +28,42 @@ public class DefectController {
 		return "Successfully added";
     }
     
-    @GetMapping(value = "/getDefect")
-    public List<Defect> getDefect() {
-		return defectServices.getDefect();
-		
+    @PutMapping(value = "/postDefect/id")
+    public String putDefect(@RequestBody Defect id) {
+    	 defectServices.updateDefect(id);
+		return "Successfully added";
     }
     
-@PutMapping(value = "/alterDefect")
-public String updateDefect(@RequestBody Defect defect) {
-	defectServices.addDefect(defect);
-	return "Successfully updated";
-	
-}
+    
+    @GetMapping(value = "/getDefect")
+    public List<Defect> getDefect(@RequestBody Defect defect) {
+		return defectServices.getDefects();
+		
+    }
+   
+    @GetMapping(value = "/getDefect"+"/"+"id")
+    public Optional<Defect> getD(@RequestBody Defect defect,@PathVariable Long id) {
+		return defectServices.getDefect(id);
+		
+    }
+   
+    
+
+
   @DeleteMapping(value = "/defect"+"/"+"{id}")
   public String deleteDefect(@PathVariable Long id) {
 		defectServices.deleteDefect(id);
 		return "Successfully deleted";
+  }
+		
+		 @DeleteMapping(value = "/defect")
+		  public String deleteDefect() {
+				defectServices.deleteDefects();
+				return "Successfully deleted";
+		
+		
+		
     
    
-	
-}
+		 }	 
 }
