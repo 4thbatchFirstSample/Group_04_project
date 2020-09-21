@@ -8,12 +8,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//import javax.validation.constraints.NotNull;
+
 @Entity
 @Table
 public class Project {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+
+//	@NotNull
+//	@Size(max = 50)
 	private String name;
 	private Date startDate;
 	private Date endDate;
