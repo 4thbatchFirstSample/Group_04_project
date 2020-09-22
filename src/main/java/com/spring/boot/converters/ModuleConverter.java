@@ -16,7 +16,7 @@ public class ModuleConverter {
 	public static Module moduleDtoToModule(ModuleDto moduleDto) {
 		Module module = new Module();
 		if (moduleDto != null) {
-			module.setModuleId(moduleDto.getModuleId());
+			module.setId(moduleDto.getId());
 			module.setName(moduleDto.getName());
 			module.setDescription(moduleDto.getDescription());
 			return module;
@@ -29,7 +29,7 @@ public class ModuleConverter {
 		if (moduleList != null) {
 			for (Module module : moduleList) {
 				ModuleDto moduleDto = new ModuleDto();
-				module.setModuleId(moduleDto.getModuleId());
+				module.setId(moduleDto.getId());
 				module.setName(moduleDto.getName());
 				module.setDescription(moduleDto.getDescription());
 

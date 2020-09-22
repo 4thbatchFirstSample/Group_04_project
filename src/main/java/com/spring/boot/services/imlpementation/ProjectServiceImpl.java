@@ -25,8 +25,8 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
-	public Optional<Project> getProjectid(Long id) {
-		return projectRepository.findById(id);
+	public Project getProjectid(Long id) {
+		return projectRepository.findById(id).get();
 	}
 
 	@Override

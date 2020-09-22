@@ -1,7 +1,5 @@
 package com.spring.boot.controllers;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.spring.boot.converters.ProjectConverter;
 import com.spring.boot.dto.ProjectDto;
 import com.spring.boot.entities.Project;
-import com.spring.boot.repositories.ProjectRepository;
 import com.spring.boot.services.ProjectService;
 
 @RestController
@@ -27,24 +24,24 @@ public class ProjectController {
 	@Autowired
 	private ProjectService projectService;
 
-	@PostMapping(value = "/postproject") // Last path URL // Working Success!!!
+	@PostMapping(value = "/project") // Last path URL // Working Success!!!
 	public ResponseEntity<Object> addProject(@RequestBody ProjectDto projectDto) {
 		projectService.addProject(ProjectConverter.projectDtoToProject(projectDto));
 		return new ResponseEntity<Object>("Added Successfully", HttpStatus.CREATED);
 	}
 
-	@PutMapping(value = "/updateproject/{id}") // Working Success!!!
+	@PutMapping(value = "/project/{id}") // Working Success!!!
 	public ResponseEntity<Object> updateProject(@RequestBody ProjectDto projectDto) {
 		projectService.updateProjectById(ProjectConverter.projectDtoToProject(projectDto));
-		return new ResponseEntity<Object>("Updated Successfully", HttpStatus.CREATED);
+		return new ResponseEntity<Object>("Updated Successfully", HttpStatus.OK);
 	}
 
-	@GetMapping(value = "/getprojectid/{id}") // Working Success!!!
-	public Optional<Project> getProject(@RequestBody ProjectDto projectDto, @PathVariable Long id) {
+	@GetMapping(value = "/project/{id}") // Working Success!!!
+	public Project getProject(@PathVariable Long id) {
 		return projectService.getProjectid(id);
 	}
 
-	@DeleteMapping(value = "deleteprojectid/{id}") // Working Success!!!
+	@DeleteMapping(value = "project/{id}") // Working Success!!!
 	public void deleteProject(@PathVariable Long id) {
 		projectService.deleteById(id);
 	}

@@ -16,10 +16,10 @@ public class ProjectConverter {
 	public static Project projectDtoToProject(ProjectDto projectDto) {
 		Project project = new Project();
 		if (projectDto != null) {
-			project.setId(projectDto.getId());
+			project.setId(projectDto.getprojectDtoId());
 			project.setName(projectDto.getName());
-			project.setsDate(projectDto.getsDate());
-			project.seteDate(projectDto.geteDate());
+			project.setstartDate(projectDto.getstartDate());
+			project.setendDate(projectDto.getendDate());
 			project.setType(projectDto.getType());
 			project.setManager(projectDto.getManager());
 			project.setAbbreviation(projectDto.getAbbreviation());
@@ -35,10 +35,10 @@ public class ProjectConverter {
 		if (projectList != null) {
 			for (Project project : projectList) {
 				ProjectDto projectDto = new ProjectDto();
-				project.setId(projectDto.getId());
+				project.setId(projectDto.getprojectDtoId());
 				project.setName(projectDto.getName());
-				project.setsDate(projectDto.getsDate());
-				project.seteDate(projectDto.geteDate());
+				project.setstartDate(projectDto.getstartDate());
+				project.setendDate(projectDto.getendDate());
 				project.setType(projectDto.getType());
 				project.setManager(projectDto.getManager());
 				project.setAbbreviation(projectDto.getAbbreviation());

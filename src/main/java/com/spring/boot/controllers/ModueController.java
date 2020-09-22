@@ -1,7 +1,6 @@
 package com.spring.boot.controllers;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,36 +26,42 @@ public class ModueController {
 	@Autowired
 	private ModuleService moduleService;
 
-	@PostMapping(value = "/postmodule")
+	@PostMapping(value = "/modulep")
 	public ResponseEntity<Object> addModule(@RequestBody ModuleDto moduleDto) {
 		moduleService.addModule(ModuleConverter.moduleDtoToModule(moduleDto));
 		return new ResponseEntity<Object>("Added Successfully", HttpStatus.CREATED);
 	}
 
-	@GetMapping(value = "/getmodule")
-	public List<Module> getProject(@RequestBody Module module) {
-		return moduleService.getModule(module);
+	@GetMapping(value = "/module")	// Working Success!!!
+	public List<Module> getModule() {
+		return moduleService.getModule();
 	}
 
-	@GetMapping(value = "/getmoduleid/{id}")
-	public Optional<Module> getModuleById(@RequestBody ModuleDto moduleDto, @PathVariable Long moduleId) {
-		return moduleService.getModuleById(moduleId);
+	@GetMapping(value = "/module/{id}")	// Working Success!!!
+	public Module getModuleById(@PathVariable Long id) {
+		return moduleService.getModuleById(id);
 	}
 
-	@DeleteMapping(value = "/deletemodule")
+	@DeleteMapping(value = "/module")	
 	public void deleteModule(Module module) {
 		moduleService.deleteModule(module);
 	}
 
-	@DeleteMapping(value = "deletemoduleid/{id}")
-	public void deleteModuleById(@PathVariable Long moduleId) {
-		moduleService.deleteModuleById(moduleId);
+	@DeleteMapping(value = "/module/{id}")	// Working Success!!!
+	public void deleteModuleById(@PathVariable Long id) {
+		moduleService.deleteModuleById(id);
 	}
 
-	@PutMapping(value = "/updatemodule/{id}")
+	@PutMapping(value = "/module/{id}")	
 	public ResponseEntity<Object> updateModule(@RequestBody ModuleDto moduleDto) {
 		moduleService.updateModule(ModuleConverter.moduleDtoToModule(moduleDto));
-		return new ResponseEntity<Object>("Updated Successfully", HttpStatus.CREATED);
+		return new ResponseEntity<Object>("Updated Successfully", HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/module/project-id/{id}")	// Working Success!!!	// S=>5
+	public List<Module> getAllModuleByProjectId(@PathVariable Long id) {
+		return moduleService.getAllModuleByProjectId(id);
+
 	}
 
 }
