@@ -44,5 +44,4 @@ public class DefectServiceImpl implements DefectService {
 	public void updateDefect(Defect defect) {
 		defectRepository.save(defect);
 	}
-
 }

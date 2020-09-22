@@ -5,7 +5,7 @@ import java.util.List;
 import com.spring.boot.entities.Defect;
 
 public interface DefectService {
-	
+
 	public void addDefect(Defect defect);
 
 	public List<Defect> getDefect();
