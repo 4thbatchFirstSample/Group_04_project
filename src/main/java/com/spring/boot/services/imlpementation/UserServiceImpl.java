@@ -1,7 +1,5 @@
 package com.spring.boot.services.imlpementation;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,8 +30,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Optional<User> getUserById(Long id) {
-		return userRepository.findById(id);
+	public User getUserById(Long id) {
+		return userRepository.findById(id).get();
 	}
 
 	@Override

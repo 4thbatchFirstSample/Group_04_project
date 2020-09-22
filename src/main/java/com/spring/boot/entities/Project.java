@@ -1,24 +1,43 @@
 package com.spring.boot.entities;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-
-//import javax.validation.constraints.NotNull;
 
 @Entity
 @Table
 public class Project {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+//	@ManyToMany(mappedBy = "user")
+//    private Set<User> projectRecode = new HashSet<>();
+//
+//	@ManyToMany(cascade = { CascadeType.ALL })
+//	@JoinTable(name = "project_user", joinColumns = @JoinColumn(name = "projectId"), inverseJoinColumns = @JoinColumn(name = "userId"))
+//	private List<User> user;
+//
+//	public List<User> getUser() {
+//		return user;
+//	}
+//
+//	public void setUser(List<User> user) {
+//		this.user = user;
+//	}
 
-//	@NotNull
-//	@Size(max = 50)
 	private String name;
 	private Date startDate;
 	private Date endDate;
@@ -42,19 +61,19 @@ public class Project {
 		this.name = name;
 	}
 
-	public Date getsDate() {
+	public Date getstartDate() {
 		return startDate;
 	}
 
-	public void setsDate(Date sDate) {
-		this.startDate = sDate;
+	public void setstartDate(Date startDate) {
+		this.startDate = startDate;
 	}
 
-	public Date geteDate() {
+	public Date getendDate() {
 		return endDate;
 	}
 
-	public void seteDate(Date eDate) {
+	public void setendDate(Date eDate) {
 		this.endDate = eDate;
 	}
 

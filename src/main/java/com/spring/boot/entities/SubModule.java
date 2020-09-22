@@ -5,23 +5,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table
-public class Module {
+public class SubModule {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-
 	private Long id;
+
 	private String name;
 	private String description;
 
-	@ManyToOne // Many to many Relationship S=>1
-	@JoinColumn(name = "projectId", nullable = false) // projectId is column name.
-	private Project project; // We want all of project data so we call entity object. // Then write GET SET
+	@OneToMany
+	@JoinColumn(name = "moduleId", nullable = false)
+	private Module module;
 
 	public Long getId() {
 		return id;
@@ -47,12 +47,12 @@ public class Module {
 		this.description = description;
 	}
 
-	public Project getProject() {
-		return project;
+	public Module getModule() {
+		return module;
 	}
 
-	public void setProject(Project project) {
-		this.project = project;
+	public void setModule(Module module) {
+		this.module = module;
 	}
 
 }

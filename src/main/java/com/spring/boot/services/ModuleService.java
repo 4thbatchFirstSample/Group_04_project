@@ -1,22 +1,23 @@
 package com.spring.boot.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.spring.boot.entities.Module;
 
 public interface ModuleService {
-	
+
 	public void addModule(Module module);
-	
-	public List<Module> getModule(Module module);
-	
-	public Optional<Module> getModuleById(Long moduleId);
-	
+
+	public List<Module> getModule();
+
+	public Module getModuleById(Long id);
+
 	public void deleteModule(Module module);
-	
-	public void deleteModuleById(Long moduleId);
-	
+
+	public void deleteModuleById(Long id);
+
 	public void updateModule(Module module);
+
+	public List<Module> getAllModuleByProjectId(Long id); // Write the method S=>3
 
 }

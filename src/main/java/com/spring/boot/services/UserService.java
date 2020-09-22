@@ -1,7 +1,5 @@
 package com.spring.boot.services;
 
-import java.util.Optional;
-
 import com.spring.boot.entities.User;
 
 public interface UserService {
@@ -14,6 +12,6 @@ public interface UserService {
 
 	public void updateUserById(User user);
 
-	public Optional<User> getUserById(Long id);
+	public User getUserById(Long id);
 
 }
