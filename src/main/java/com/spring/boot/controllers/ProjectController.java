@@ -3,6 +3,7 @@ package com.spring.boot.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,8 +21,13 @@ public class ProjectController {
 	private ProjectService projectService;
 	
 	@PostMapping(value = "/project")
-	public ResponseEntity<Object> addEmployee(@RequestBody ProjectDto projectDto) {
+	public ResponseEntity<Object> addProject(@RequestBody ProjectDto projectDto) {
 		projectService.addProject(ProjectConverter.projectDtoToProject(projectDto));
-		return new ResponseEntity<Object>("Added Successfully", HttpStatus.CREATED);
+		return new ResponseEntity<Object>("Added Successfully", HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "/project")
+	public ResponseEntity<Object> getProject() {
+		return new ResponseEntity<Object>(ProjectConverter.projectToProjectDto(projectService.getProjects()), HttpStatus.OK);
 	}
 }

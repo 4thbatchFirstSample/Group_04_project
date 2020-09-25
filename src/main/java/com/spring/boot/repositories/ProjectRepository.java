@@ -9,3 +9,4 @@ import com.spring.boot.entities.Project;
 public interface ProjectRepository extends JpaRepository<Project, Long> {
 
 }
+
