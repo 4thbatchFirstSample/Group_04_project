@@ -28,9 +28,9 @@ public class UserConverter {
 		if (userList != null) {
 			for (User user : userList) {
 				UserDto userDto = new UserDto();
-				user.setId(userDto.getId());
-				user.setUserName(userDto.getUserName());
-				user.setPassword(userDto.getPassword());
+				userDto.setId(user.getId());
+				userDto.setUserName(user.getUserName());
+				userDto.setPassword(user.getPassword());
 
 				listUserDto.add(userDto);
 			}

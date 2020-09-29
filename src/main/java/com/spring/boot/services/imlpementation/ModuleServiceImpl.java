@@ -30,22 +30,22 @@ public class ModuleServiceImpl implements ModuleService {
 	public Module getModuleById(Long id) {
 		return moduleRepository.findById(id).get();
 	}
-/****/
+
 	@Override
 	public void deleteModule(Module module) {
 		moduleRepository.deleteAll();
 	}
-/***/
+
 	@Override
 	public void deleteModuleById(Long moduleId) {
 		moduleRepository.deleteById(moduleId);
 	}
-/***/
+
 	@Override
 	public void updateModule(Module module) {
 		moduleRepository.save(module);
 	}
-/**/
+
 	@Override
 	public List<Module> getAllModuleByProjectId(Long id) { // S=>4
 		return moduleRepository.findByProjectId(id);

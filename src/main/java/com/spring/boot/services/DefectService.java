@@ -5,10 +5,10 @@ import java.util.List;
 import com.spring.boot.entities.Defect;
 
 public interface DefectService {
-	
+
 	public void addDefect(Defect defect);
 
-	public List<Defect> getModule();
+	public List<Defect> getDefect();
 
 	public Defect getDefectById(Long id);
 
@@ -17,5 +17,7 @@ public interface DefectService {
 	public void deleteDefectById(Long id);
 
 	public void updateDefect(Defect defect);
+	
+	public List<Defect> getAllDefectIdBySubModuleId(Long id); 
 
 }

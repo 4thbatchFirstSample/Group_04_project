@@ -45,4 +45,9 @@ public class SubModuleServiceImpl implements SubModuleService {
 		subModulerepository.save(subModule);
 	}
 
+	@Override
+	public List<SubModule> getAllSubModuleByModuleId(Long id) {
+		return subModulerepository.findByModuleId(id);
+	}
+
 }

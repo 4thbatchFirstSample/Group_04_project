@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table
@@ -16,7 +17,9 @@ public class Module {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
 	private Long id;
+	@NotBlank(message = "Name feild is must.")
 	private String name;
+	@NotBlank(message = "Description feild is must.")
 	private String description;
 
 	@ManyToOne // Many to many Relationship S=>1

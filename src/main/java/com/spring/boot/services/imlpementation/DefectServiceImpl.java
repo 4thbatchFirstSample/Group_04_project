@@ -14,13 +14,14 @@ public class DefectServiceImpl implements DefectService {
 
 	@Autowired
 	private DefectRepository defectRepository;
+
 	@Override
 	public void addDefect(Defect defect) {
 		defectRepository.save(defect);
 	}
 
 	@Override
-	public List<Defect> getModule() {
+	public List<Defect> getDefect() {
 		return defectRepository.findAll();
 	}
 
@@ -44,4 +45,8 @@ public class DefectServiceImpl implements DefectService {
 		defectRepository.save(defect);
 	}
 
+	@Override
+	public List<Defect> getAllDefectIdBySubModuleId(Long id) {
+		return defectRepository.findBySubModuleId(id);
+	}
 }

@@ -26,7 +26,7 @@ public class ModueController {
 	@Autowired
 	private ModuleService moduleService;
 
-	@PostMapping(value = "/modulep")
+	@PostMapping(value = "/module")
 	public ResponseEntity<Object> addModule(@RequestBody ModuleDto moduleDto) {
 		moduleService.addModule(ModuleConverter.moduleDtoToModule(moduleDto));
 		return new ResponseEntity<Object>("Added Successfully", HttpStatus.CREATED);

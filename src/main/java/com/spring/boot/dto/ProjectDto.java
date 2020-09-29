@@ -4,20 +4,20 @@ import java.util.Date;
 
 public class ProjectDto {
 
-	private Long projectDtoId;
+	private Long id;
 	private String name;
-	private Date startDate;
-	private Date endDate;
+	private String startDate;
+	private String endDate;
 	private String type;
 	private String manager;
 	private String abbreviation;
 
-	public Long getprojectDtoId() {
-		return projectDtoId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setprojectDtoId(Long projectDtoId) {
-		this.projectDtoId = projectDtoId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -28,19 +28,19 @@ public class ProjectDto {
 		this.name = name;
 	}
 
-	public Date getstartDate() {
+	public String getstartDate() {
 		return startDate;
 	}
 
-	public void setstartDate(Date sDate) {
+	public void setstartDate(String sDate) {
 		this.startDate = sDate;
 	}
 
-	public Date getendDate() {
+	public String getendDate() {
 		return endDate;
 	}
 
-	public void setendDate(Date eDate) {
+	public void setendDate(String eDate) {
 		this.endDate = eDate;
 	}
 
