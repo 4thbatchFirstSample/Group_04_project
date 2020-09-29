@@ -26,10 +26,10 @@ import com.spring.boot.services.DefectService;
 @RestController
 @RequestMapping(value = "api/v1")
 public class DefectController {
-	
+
 	@Autowired
 	private DefectService defectService;
-	
+
 	@PostMapping(value = "/defect")
 	public ResponseEntity<Object> addDefect(@RequestBody DefectDto defectDto) {
 		defectService.addDefect(DefectConverter.DefectDtoToDefect(defectDto));
@@ -40,7 +40,7 @@ public class DefectController {
 	public List<Defect> getDefect() {
 		return defectService.getDefect();
 	}
-	
+
 	@GetMapping(value = "/defect/{id}")
 	public Defect getDefectById(@PathVariable Long id) {
 		return defectService.getDefectById(id);
@@ -61,9 +61,9 @@ public class DefectController {
 		defectService.updateDefect(DefectConverter.DefectDtoToDefect(defectDto));
 		return new ResponseEntity<Object>("Updated Successfully", HttpStatus.OK);
 	}
-	
+
 	@GetMapping(value = "/defect/submodule-id/{id}")
-	public List<Defect> getAllDefectIdBySubModuleId(Long id){
+	public List<Defect> getAllDefectIdBySubModuleId(Long id) {
 		return defectService.getAllDefectIdBySubModuleId(id);
 	}
 

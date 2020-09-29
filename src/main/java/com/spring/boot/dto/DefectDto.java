@@ -83,5 +83,4 @@ public class DefectDto {
 	public void setSubModeleId(Long subModeleId) {
 		this.subModeleId = subModeleId;
 	}
-
 }

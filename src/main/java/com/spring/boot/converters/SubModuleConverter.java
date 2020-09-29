@@ -12,14 +12,15 @@ public class SubModuleConverter {
 	public static SubModule SubModuleDtoToSubModule(SubModuleDto subModuleDto) {
 		SubModule subModule = new SubModule();
 		Module module = new Module();
+
 		if (subModuleDto != null) {
 			subModule.setId(subModuleDto.getId());
 			subModule.setName(subModuleDto.getName());
 			subModule.setDescription(subModuleDto.getDescription());
 			module.setId(subModuleDto.getId());
 			subModule.setModule(module);
-			
 			return subModule;
+			
 		}
 		return null;
 	}

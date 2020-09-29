@@ -12,7 +12,7 @@ public class DefectConverter {
 	public static Defect DefectDtoToDefect(DefectDto defectDto) {
 		Defect defect = new Defect();
 		SubModule subModule = new SubModule();
-		
+
 		if (defectDto != null) {
 			defect.setId(defectDto.getId());
 			defect.setName(defectDto.getName());
@@ -24,7 +24,7 @@ public class DefectConverter {
 			defect.setAssignedto(defectDto.getAssignedto());
 			subModule.setId(defectDto.getId());
 			defect.setSubModule(subModule);
-			
+
 			return defect;
 		}
 		return null;
