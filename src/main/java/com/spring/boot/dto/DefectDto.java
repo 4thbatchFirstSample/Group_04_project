@@ -2,7 +2,7 @@ package com.spring.boot.dto;
 
 public class DefectDto {
 	private Long defectId;
-	private String smId;
+	private String subModuleId;
 	private String stasus;
 	private String name;
 	private String description;
@@ -16,10 +16,10 @@ public class DefectDto {
 		this.defectId = id;
 	}
 	public String getSmId() {
-		return smId;
+		return subModuleId;
 	}
 	public void setSmId(String smId) {
-		this.smId = smId;
+		this.subModuleId = smId;
 	}
 	public String getStasus() {
 		return stasus;

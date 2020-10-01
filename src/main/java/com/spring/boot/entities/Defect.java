@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,13 +15,19 @@ public class Defect {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long defectId;
-	private String smId;
+	private String subModuleId;
 	private String stasus;
 	private String name;
 	private String description;
 	private String priority;
 	private String severity;
 	private String asignto;
+	
+	
+	@ManyToOne
+    @JoinColumn(name="subModuleId" , nullable=false)
+    private SubModule subModule;
+	
 	public Long getId() {
 		return defectId;
 	}
@@ -27,10 +35,10 @@ public class Defect {
 		this.defectId = id;
 	}
 	public String getSmId() {
-		return smId;
+		return subModuleId;
 	}
 	public void setSmId(String smId) {
-		this.smId = smId;
+		this.subModuleId = smId;
 	}
 	public String getStasus() {
 		return stasus;

@@ -1,6 +1,4 @@
- package com.spring.boot.services.implementation;
-
-
+package com.spring.boot.services.implementation;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,10 +9,9 @@ import com.spring.boot.entities.Defect;
 import com.spring.boot.repositories.DefectRepository;
 import com.spring.boot.services.DefectServices;
 
+@Service
+public class DefectServicesImpl implements DefectServices {
 
-@ Service
-public class DefectServicesImpl implements DefectServices{
-	
 	@Autowired
 	private DefectRepository defectRepository;
 
@@ -23,47 +20,37 @@ public class DefectServicesImpl implements DefectServices{
 		// TODO Auto-generated method stub
 		defectRepository.save(defect);
 	}
+
 	public Defect updateDefect(Defect id) {
 		// TODO Auto-generated method stub
 		return defectRepository.save(id);
 	}
-	
-	
+
 	@Override
 	public void deleteDefect(Long id) {
 		// TODO Auto-generated method stub
 		defectRepository.deleteById(id);
 	}
 
-	
-
-
-@Override
+	@Override
 	public List<Defect> getDefects() {
-		// TODO Auto-generated method stub
 		return defectRepository.findAll();
+	}
+
+	@Override
+	public Optional<Defect> getDefect(Long id) {
+		return defectRepository.findById(id);
+	}
+
+	@Override
+	public void deleteDefects() {
+		defectRepository.deleteAll();
 	}
 
 
 
-@Override
-public Optional<Defect> getDefect(Long id) {
-	// TODO Auto-generated method stub
-	return defectRepository.findById(id);
-}
-
-
-
-@Override
-public void deleteDefects() {
-	// TODO Auto-generated method stub
-	defectRepository.deleteAll();
-}
-
+public List<Defect> getByAllDefect(Long id){
+	return defectRepository.findBySubModuleId(id);
 	
-
-	
-
-
-
+}
 }

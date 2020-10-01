@@ -18,52 +18,53 @@ import com.spring.boot.services.DefectServices;
 
 @RestController
 public class DefectController {
+	
     @Autowired
     
     private DefectServices defectServices;
     
-    @PostMapping(value = "/postDefect")
-    public String addDefect(@RequestBody Defect defect) {
+    @PostMapping(value = "/defect")
+    	public String addDefect(@RequestBody Defect defect) {
     	defectServices.addDefect(defect);
 		return "Successfully added";
     }
     
-    @PutMapping(value = "/postDefect/{id}")
-    public String putDefect(@RequestBody Defect id) {
+    @PutMapping(value = "/defect/{id}")
+    	public String putDefect(@RequestBody Defect id) {
     	 defectServices.updateDefect(id);
 		return "Successfully added";
     }
     
     
-    @GetMapping(value = "/getDefect")
-    public List<Defect> getDefect(@RequestBody Defect defect) {
+    @GetMapping(value = "/defect")
+    	public List<Defect> getDefect(@RequestBody Defect defect) {
 		return defectServices.getDefects();
 		
     }
    // get by id
-    @GetMapping(value = "/getDefect"+"/"+"{id}")
-    public Optional<Defect> getDefectById(@RequestBody Defect defect,@PathVariable Long id) {
+    @GetMapping(value = "/defect"+"/"+"{id}")
+    	public Optional<Defect> getDefectById(@RequestBody Defect defect,@PathVariable Long id) {
 		return defectServices.getDefect(id);
 		
     }
    
-    
-
-
-  @DeleteMapping(value = "/defect"+"/"+"{id}")
-  public String deleteDefect(@PathVariable Long id) {
+   @DeleteMapping(value = "/defect/{id}")
+   		public String deleteDefect(@PathVariable Long id) {
 		defectServices.deleteDefect(id);
 		return "Successfully deleted";
   }
 		
-		 @DeleteMapping(value = "/defect")
+   @DeleteMapping(value = "/defect")
 		  public String deleteDefect() {
 				defectServices.deleteDefects();
 				return "Successfully deleted";
-		
-		
-		
-    
    
 		 }	 
+
+
+@GetMapping(value = "/defects"+"/"+"{id}")
+public List<Defect> getAllDefectById(@RequestBody Defect defect,@PathVariable Long id) {
+return defectServices.getByAllDefect(id);
+
+}
 }

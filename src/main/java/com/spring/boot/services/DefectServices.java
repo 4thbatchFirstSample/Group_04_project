@@ -14,9 +14,12 @@ public interface  DefectServices {
 	public void deleteDefect(Long id);
 	public void deleteDefects();
 
-	List<Defect> getDefects();
+	public List<Defect> getDefects();
 
 	public  Defect updateDefect(Defect id);
+	
+	public  List<Defect>  getByAllDefect(Long id);
+	
 
 	
 
