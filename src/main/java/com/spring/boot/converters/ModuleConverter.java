@@ -9,7 +9,7 @@ import com.spring.boot.dto.ModuleDto;
 import com.spring.boot.entities.Module;
 import com.spring.boot.entities.Project;
 
-@Service
+  @Service
 public class ModuleConverter {
 
 	public static Module moduleDtoToModule(ModuleDto moduleDto) {
@@ -20,7 +20,7 @@ public class ModuleConverter {
 			module.setId(moduleDto.getId());
 			module.setName(moduleDto.getName());
 			module.setDescription(moduleDto.getDescription());
-			project.setId(moduleDto.getId());
+			project.setId(moduleDto.getProjectId());
 			module.setProject(project);
 
 			return module;

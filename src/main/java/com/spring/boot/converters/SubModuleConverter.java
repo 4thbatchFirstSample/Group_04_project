@@ -17,8 +17,8 @@ public class SubModuleConverter {
 			subModule.setId(subModuleDto.getId());
 			subModule.setName(subModuleDto.getName());
 			subModule.setDescription(subModuleDto.getDescription());
-			module.setId(subModuleDto.getId());
 			subModule.setModule(module);
+			module.setId(subModuleDto.getId());
 			return subModule;
 			
 		}
