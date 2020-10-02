@@ -31,14 +31,22 @@ public class ProjectController {
 	}
 
 	@PutMapping(value = "/project/{id}") // Working Success!!!
-	public ResponseEntity<Object> updateProject(@RequestBody ProjectDto projectDto) {
-		projectService.updateProjectById(ProjectConverter.projectDtoToProject(projectDto));
-		return new ResponseEntity<Object>("Updated Successfully", HttpStatus.OK);
+	public ResponseEntity<Object> updateProject(@RequestBody ProjectDto projectDto, @PathVariable Long id ) {
+		if (projectService.proTableId(id)) {
+			projectService.updateProjectById(ProjectConverter.projectDtoToProject(projectDto));
+			return new ResponseEntity<Object>("Updated Successfully", HttpStatus.OK);
+		}else {
+			return new ResponseEntity<Object>("Invalide project id!!!", HttpStatus.OK);
+		}
+		
 	}
 
 	@GetMapping(value = "/project/{id}") // Working Success!!!
-	public Project getProject(@PathVariable Long id) {
-		return projectService.getProjectid(id);
+	public ResponseEntity<Object> getProject(@PathVariable Long id) {
+		if (projectService.proTableId(id)) {
+			return new ResponseEntity<Object> (projectService.getProjectid(id), HttpStatus.OK);
+		}
+		return new ResponseEntity<Object>("Invalide project id!!!",HttpStatus.OK);
 	}
 
 	@DeleteMapping(value = "project/{id}") // Working Success!!!
