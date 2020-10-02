@@ -39,4 +39,9 @@ public class ProjectServiceImpl implements ProjectService {
 		return projectRepository.findById(id);
 	}
 
+	@Override
+	public boolean proTableId(Long id) {
+		return false;
+	}
+
 }

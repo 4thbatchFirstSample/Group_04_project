@@ -15,5 +15,7 @@ public interface ProjectService {
 	public void deleteById(Long id);
 
 	public Optional<Project> getByIdProject(Long id);
+	
+	public boolean proTableId(Long id);
 
 }

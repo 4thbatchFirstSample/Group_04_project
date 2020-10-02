@@ -46,7 +46,7 @@ public class User {
 		this.project = project;
 	}
 
-	public String getUserName() {
+	public String getUserName() {	
 		return userName;
 	}
 
