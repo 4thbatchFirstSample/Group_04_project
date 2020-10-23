@@ -10,13 +10,20 @@ import com.spring.boot.entities.Project;
 
 @Service
 public class ProjectConverter {
+
 	// projectDto to Project Entity Converter
+
 	public static Project projectDtoToProject(ProjectDto projectDto) {
 		Project project = new Project();
 		if (projectDto != null) {
 			project.setId(projectDto.getId());
 			project.setName(projectDto.getName());
+			project.setstartDate(projectDto.getstartDate());
+			project.setendDate(projectDto.getendDate());
+			project.setType(projectDto.getType());
+			project.setManager(projectDto.getManager());
 			project.setAbbreviation(projectDto.getAbbreviation());
+			
 			return project;
 		}
 		return null;
@@ -31,6 +38,10 @@ public class ProjectConverter {
 				ProjectDto projectDto = new ProjectDto();
 				projectDto.setId(project.getId());
 				projectDto.setName(project.getName());
+				projectDto.setstartDate(project.getstartDate());
+				projectDto.setendDate(project.getendDate());
+				projectDto.setType(project.getType());
+				projectDto.setManager(project.getManager());
 				projectDto.setAbbreviation(project.getAbbreviation());
 
 				listProjectDto.add(projectDto);
@@ -38,7 +49,6 @@ public class ProjectConverter {
 			return listProjectDto;
 		}
 		return null;
-
 	}
 
 }
