@@ -1,5 +1,6 @@
 package com.spring.boot.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -21,8 +22,8 @@ public class Project {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-//	@ManyToMany(mappedBy = "user")
-//	private List<Project> projectRecode = new ArrayList<Project>();
+	@ManyToMany(mappedBy = "user")
+	private List<Project> projectRecode = new ArrayList<Project>();
 
 	@ManyToMany(cascade = { CascadeType.ALL })
 	@JoinTable(name = "project_user", joinColumns = @JoinColumn(name = "projectId"), inverseJoinColumns = @JoinColumn(name = "userId"))
@@ -49,8 +50,8 @@ public class Project {
 	@NotBlank(message = "Abbreviation is not blank feild")
 	private String abbreviation;
 
-//	@ManyToMany
-//	private List<User> userRel;
+	@ManyToMany
+	private List<User> userRel;
 
 	public Long getId() {
 		return id;

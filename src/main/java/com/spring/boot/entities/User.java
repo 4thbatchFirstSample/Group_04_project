@@ -30,8 +30,8 @@ public class User {
 	@NotBlank(message = "Password is must.")
 	private String password;
 
-//	@ManyToMany(mappedBy = "userRel")
-//	private List<Project> projectRel;
+	@ManyToMany(mappedBy = "userRel")
+	private List<Project> projectRel;
 
 	@ManyToMany // (cascade = { CascadeType.ALL })
 	@JoinTable(name = "user_project", joinColumns = @JoinColumn(name = "fk_user"), inverseJoinColumns = @JoinColumn(name = "fk_project"))
